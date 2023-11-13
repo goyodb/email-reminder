@@ -27,8 +27,9 @@ Alternativamente, si prefieres ejecutar el script a través de un servidor web, 
 
 ```bash
 0 * * * * /usr/bin/php /path/to/your/script/send_emails.php
-
-o
+```
+o wget
 
 ```bash
 0 * * * * wget -O - -q -t 1 http://yourwebsite.com/path/to/your/script/send_emails.php
+```
