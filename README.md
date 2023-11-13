@@ -23,12 +23,12 @@ Para usar el sistema, simplemente ejecuta `php send_emails.php` en la línea de 
 Para automatizar el envío de correos electrónicos, puedes asignar un cronjob a `send_emails.php`. Esto hará que el script se ejecute automáticamente a intervalos regulares.
 
 Por ejemplo, para ejecutar el script cada hora, puedes agregar la siguiente línea a tu crontab:
-Alternativamente, si prefieres ejecutar el script a través de un servidor web, puedes usar `wget` en tu cronjob. Por ejemplo:
+
 
 ```bash
 0 * * * * /usr/bin/php /path/to/your/script/send_emails.php
 ```
-o wget
+Alternativamente, si prefieres ejecutar el script a través de un servidor web, puedes usar `wget` en tu cronjob. Por ejemplo:
 
 ```bash
 0 * * * * wget -O - -q -t 1 http://yourwebsite.com/path/to/your/script/send_emails.php
