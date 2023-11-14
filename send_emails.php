@@ -13,10 +13,18 @@ while ($row = $stmt->fetch()) {
     echo "Processing email id: {$row['id']}\n";
 
     $mail->setFrom('legal@franconoriega.com', 'Legal Franco Noriega');
-    $mail->addAddress($row['email']);
     $mail->isHTML(true);
-    $mail->Subject = 'Legal Department from Franco Noriega';
+    $subjectDate = date('D, d M Y');
+    $mail->Subject = 'Legal Department from Franco Noriega - ' . $subjectDate;
     $mail->Body    = nl2br($row['template']);
+
+    // Split the email string into an array
+    $emails = explode(',', $row['email']);
+
+    // Loop through the array and add each email address
+    foreach ($emails as $email) {
+        $mail->addAddress(trim($email));
+    }
 
     if ($mail->send()) {
         echo "Email sent to: {$row['email']}\n";
@@ -31,4 +39,7 @@ while ($row = $stmt->fetch()) {
     } else {
         echo "Failed to send email to: {$row['email']}\n";
     }
+
+    // Clear all addresses for next loop
+    $mail->clearAddresses();
 }
