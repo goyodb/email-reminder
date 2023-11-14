@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 
 <body>
-    <div class="container">
+    <div class="fluid-container">
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <h1 class="text-center mt-3">Nuevo Email Reminder</h1>

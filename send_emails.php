@@ -4,11 +4,12 @@ require 'config.php';
 date_default_timezone_set('America/Bogota');
 
 $now = date('Y-m-d H:i:s');
-$inOneHour = date('Y-m-d H:i:s', strtotime('+1 hour'));
+$inTwentyMinutes = date('Y-m-d H:i:s', strtotime('+20 minutes'));
 
 $stmt = $db->prepare("SELECT * FROM emails WHERE status = 'pending' AND next_send_time >= ? AND next_send_time < ?");
-$stmt->execute([$now, $inOneHour]);
+$stmt->execute([$now, $inTwentyMinutes]);
 
+// Rest of your code...
 while ($row = $stmt->fetch()) {
     echo "Processing email id: {$row['id']}\n";
 
